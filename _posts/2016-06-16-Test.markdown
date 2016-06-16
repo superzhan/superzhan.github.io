@@ -1,16 +1,17 @@
 ---
 layout: post
-title:  "测试Blog"
+title:  "《天天萌泡泡》Unity游戏开源"
 date:   2016-06-16 08:01:54 +0800
 categories: jekyll update
 ---
 
-##superblog
+# Unity游戏开源《天天萌泡泡》
 
-```
-npm install express
-```
+  《天天萌泡泡》是一款简单好玩的消除游戏，点击三个或以上同颜色、相连接的泡泡来进行消除，简单而有趣。
+游戏玩法：类似消灭星星的玩法，点击三个或以上同颜色、相连接的泡泡进行消除。 一次消除的元素越多，就会产生越厉害的特殊泡泡。点击特殊泡泡能大量消除其他泡泡，获得更高的分数。游戏是限时模式。
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+github 项目地址：<https://github.com/superzhan/UnityBubbleGame>
+
+[游戏下载](http://www.superzhan.cn/wp-content/uploads/2016/03/%E5%A4%A9%E5%A4%A9%E8%90%8C%E6%B3%A1%E6%B3%A1.apk)
+
+![photo](http://www.superzhan.cn/wp-content/uploads/2016/03/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2016-03-06-15.23.53.png)

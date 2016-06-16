@@ -1,28 +1,39 @@
 ---
 layout: post
-title:  "我的博文"
+title:  "python 常用命令"
 date:   2016-06-16 08:01:54 +0800
 categories: jekyll update
 ---
 
-##宏图霸业，终归尘土。
+# python 常用命令
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+批量安装库
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+```python
+pip install -r requirement.txt
+pip install -r requirement.txt
+```
 
-Jekyll also offers powerful support for code snippets:
+虚拟环境
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+```python
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+virtualenv  ENV 创建
+virtualenv --python=python2.7 env  创建某个版本
 
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+cd ENV
+source ./bin/activate 开启环境
+
+退出虚拟环境
+deactivate
+
+virtualenv  ENV 创建
+virtualenv --python=python2.7 env  创建某个版本
+ 
+cd ENV
+source ./bin/activate 开启环境
+ 
+退出虚拟环境
+deactivate
+```
+
