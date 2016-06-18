@@ -1,0 +1,176 @@
+---
+layout: post
+title:  "Surface shader"
+date:   2016-06-18 14:01:54 +0800
+categories: jekyll update
+---
+
+定义一个“表面函数(surface function)”，需要输入相关的UV或数据信息，并在输出结构中填充SurfaceOutput。SurfaceOutput基本上描述了表面的特性（光照的颜色反射率、法线、散射、镜面等）。其实还是需要用CG或者HLSL编写此部分的代码。
+我们其实是通过表面着色器(Surface Shader)来编译这段CG或者HLSL代码的，然后计算出需要填充输入什么，输出什么等相关信息，并产生真实的顶点(vertex)&像素(pixel)着色器，以及把渲染路径传递到正向或延时渲染路径。
+说白了，还是那句话，Surface Shader是Unity微创新自创的一套着色器标准，是Unity自己发扬光大的一项使Shader的书写门槛降低和更易用的技术。
+
+
+输出结构
+
+```
+struct SurfaceOutput   
+{  
+    half3 Albedo;            //反射率，也就是纹理颜色值（r,g,b)   
+    half3 Normal;            //法线，法向量(x, y, z)   
+    half3 Emission;          //自发光颜色值(r, g,b)   
+    half Specular;           //镜面反射度   
+    half Gloss;              //光泽度  
+    half Alpha;              //透明度  
+};
+``` 
+
+输入结构
+
+```
+struct Input {
+   float2 uv_MainTex;
+   float3 worldPos;
+};
+```
+
+
+表面着色器书写的第三个要素是指明表面输入结构（Input Structure）。
+Input 这个输入结构通常拥有着色器需要的所有纹理坐标(texture coordinates)。纹理坐标(Texturecoordinates)必须被命名为“uv”后接纹理(texture)名字。(或者uv2开始，使用第二纹理坐标集)。
+可以在输入结构中根据自己的需要，可选附加这样的一些候选值：
+
+```
+float3 viewDir - 视图方向( view direction)值。为了计算视差效果(Parallax effects)，边缘光照(rim lighting)等，需要包含视图方向( view direction)值。
+float4 with COLOR semantic -每个顶点(per-vertex)颜色的插值。
+float4 screenPos - 屏幕空间中的位置。 为了反射效果，需要包含屏幕空间中的位置信息。比如在Dark Unity中所使用的 WetStreet着色器。
+float3 worldPos - 世界空间中的位置。
+float3 worldRefl - 世界空间中的反射向量。如果表面着色器(surface shader)不写入法线(o.Normal)参数，将包含这个参数。 请参考这个例子：Reflect-Diffuse 着色器。
+float3 worldNormal - 世界空间中的法线向量(normal vector)。如果表面着色器(surface shader)不写入法线(o.Normal)参数，将包含这个参数。
+float3 worldRefl; INTERNAL_DATA - 世界空间中的反射向量。如果表面着色器(surface shader)不写入法线(o.Normal)参数，将包含这个参数。为了获得基于每个顶点法线贴图( per-pixel normal map)的反射向量(reflection vector)需要使用世界反射向量(WorldReflectionVector (IN, o.Normal))。请参考这个例子： Reflect-Bumped着色器。
+float3 worldNormal; INTERNAL_DATA -世界空间中的法线向量(normal vector)。如果表面着色器(surface shader)不写入法线(o.Normal)参数，将包含这个参数。为了获得基于每个顶点法线贴图( per-pixel normal map)的法线向量(normal vector)需要使用世界法线向量(WorldNormalVector (IN, o.Normal))。
+``` 
+
+着色器函数
+
+```
+  Shader "Example/Diffuse Texture" {
+    Properties {
+      _MainTex ("Texture", 2D) = "white" {}
+    }
+    SubShader {
+      Tags { "RenderType" = "Opaque" }
+      CGPROGRAM
+      #pragma surface surf Lambert
+      struct Input {
+          float2 uv_MainTex;
+      };
+      sampler2D _MainTex;
+      void surf (Input IN, inout SurfaceOutput o) {
+          o.Albedo = tex2D (_MainTex, IN.uv_MainTex).rgb;
+      }
+      ENDCG
+    } 
+    Fallback "Diffuse"
+  }
+```
+
+
+
+顶点处理
+
+```
+Shader "Example/Normal Extrusion" {
+    Properties {
+      _MainTex ("Texture", 2D) = "white" {}
+      _Amount ("Extrusion Amount", Range(-0.0001,0.0001)) = 0
+    }
+    SubShader {
+      Tags { "RenderType" = "Opaque" }
+      CGPROGRAM
+      // 这里声明了光照模型 和 顶点处理函数
+      #pragma surface surf Lambert vertex:vert
+      struct Input {
+          float2 uv_MainTex;
+      };
+      float _Amount;
+      //顶点处理函数 ，把定点向法向量方向移动
+      void vert (inout appdata_full v) {
+          v.vertex.xyz += v.normal * _Amount;
+      }
+      sampler2D _MainTex;
+      void surf (Input IN, inout SurfaceOutput o) {
+          o.Albedo = tex2D (_MainTex, IN.uv_MainTex).rgb;
+      }
+      ENDCG
+    } 
+    Fallback "Diffuse"
+  }
+```
+
+一个积雪的Demo
+
+```
+Shader "Custom/SnowShader" {
+	Properties {
+		_MainColor("Main Color",Color) = (1,1,1,1)
+		_MainTex("Main texture",2D)="white"{}
+		_Bump("Bump tex",2D)="white"{}
+		_Snow("Level of snow",Range(1,-1))=1
+		_SnowColor("Color of snow",Color)=(1,1,1,1)
+		_SnowDirection("Direction of snow",Vector)=(0,1,0)
+		_SnowDepth("Depth of snow",Range(0,0.0001)) =0
+	}
+	SubShader {
+		
+		Tags{"RenderType"="Opaque"}
+		LOD 200
+		
+		CGPROGRAM
+		#pragma surface surf Lambert vertex:vert
+		
+		sampler2D _MainTex;
+		sampler2D _Bump;
+		float _Snow;
+		float4 _SnowColor;
+		float4 _MainColor;
+		float4 _SnowDirection;
+		float _SnowDepth;
+		
+		
+		struct Input{
+		    float2 uv_MainTex;
+		    float2 uv_Bump;
+		    float3 worldNormal; INTERNAL_DATA
+		};
+		
+		void vert(inout appdata_full v)
+		{
+                    //把_SnowDirection 变为世界坐标的方向
+		    float4 sn=mul( transpose(_Object2World), _SnowDirection );
+		    if( dot( v.normal ,sn.xyz) >=_Snow )
+		    {
+		        v.vertex.xyz += (sn.xyz + v.normal)*_SnowDepth*_Snow;
+		    }
+		}
+		
+		
+		void surf(Input IN,inout SurfaceOutput o)
+		{
+		    half4 c = tex2D(_MainTex,IN.uv_MainTex);
+		    o.Normal = UnpackNormal( tex2D(_Bump,IN.uv_Bump) );
+		    
+                     //和 雪的方向相同 就 渲染为白色
+		    if( dot( WorldNormalVector(IN,o.Normal) ,_SnowDirection.xyz )>=_Snow )
+		    {
+		        o.Albedo = _SnowColor.rgb;
+		    }else
+		    {
+		        o.Albedo = c.rgb*_MainColor;
+		    }
+		    o.Alpha=1;
+		}
+		ENDCG
+		
+	} 
+	FallBack "Diffuse"
+}
+```

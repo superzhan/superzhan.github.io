@@ -5,7 +5,7 @@ date:   2016-06-16 08:01:54 +0800
 categories: jekyll update
 ---
 
-# python 常用命令
+python 常用命令
 
 批量安装库
 
