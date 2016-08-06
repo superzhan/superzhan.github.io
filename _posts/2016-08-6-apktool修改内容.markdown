@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "apktool 修改apk内容"
+date:   2016-08-6 14:01:54 +0800
+categories: jekyll update
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Android
+---
+
+# apktool 修改apk内容
+
+1.安装JDK和JRE,下载apktool,配置好环境变量。
+
+2.反编译apk
+
+```
+apktool d du.apk
+```
+du.apk是要反编译的apk, 反编译完后会在当前目录下生成一个 du 的文件夹。
+
+3.du文件夹内是apk 的内容，修改想要修改的内容。
+
+
+4.回编译和签名。
+
+```
+apktool b du
+```
+执行这个命令，回编译du文件夹的内容，生成apk。会生成build和dist两个文件夹，回编译的apk在dist文件夹中,需要重新签名就可以了。
+
+```
+jarsigner -verbose -keystore   key.keystore
+ -signedjar signed.apk before.apk youmeng
+```
+    key.keystore 是签名文件
+    signed.apk 签名后的apk
+    before.apk 签名前的apk
+    youmeng 签名别名
+最后的得到了 signed.apk 是修改内容后的apk。
+
+### 参考
+http://jingyan.baidu.com/article/fd8044faf606ab5031137a0e.html
