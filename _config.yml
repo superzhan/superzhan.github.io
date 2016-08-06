@@ -1,7 +1,7 @@
 # Site settings
 title: superzhan
 SEOTitle: superzhan | superzhan Blog
-header-img: img/home-bg.jpg
+header-img: img/post-bg-2015.jpg
 email: zhangzhanchang163@163.com
 description: "宏图霸业，始于足下。"
 keyword: "unity 程序员 理想主义者 心理学 "
@@ -60,10 +60,10 @@ duoshuo_username: superzhan
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+ba_track_id: cef87568424f886a2ce34e0087fe7421
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+##ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+##ga_domain: huangxuan.me
 
 
 
