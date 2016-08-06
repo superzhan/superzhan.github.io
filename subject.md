@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 我的作品
-permalink: /我的作品/
+title: works
+permalink: /works/
 ---
 整理到目前为止开发过的作品，作为自己成长的见证吧 ! 感谢大家的支持。
 
