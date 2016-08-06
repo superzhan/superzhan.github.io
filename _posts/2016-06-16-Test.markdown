@@ -3,6 +3,10 @@ layout: post
 title:  "《天天萌泡泡》Unity游戏开源"
 date:   2016-06-16 08:01:54 +0800
 categories: jekyll update
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Unity
 ---
 
   《天天萌泡泡》是一款简单好玩的消除游戏，点击三个或以上同颜色、相连接的泡泡来进行消除，简单而有趣。

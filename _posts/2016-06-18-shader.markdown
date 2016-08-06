@@ -3,6 +3,10 @@ layout: post
 title:  "Surface shader"
 date:   2016-06-18 14:01:54 +0800
 categories: jekyll update
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Unity
 ---
 
 定义一个“表面函数(surface function)”，需要输入相关的UV或数据信息，并在输出结构中填充SurfaceOutput。SurfaceOutput基本上描述了表面的特性（光照的颜色反射率、法线、散射、镜面等）。其实还是需要用CG或者HLSL编写此部分的代码。
