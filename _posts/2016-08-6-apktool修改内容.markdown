@@ -30,6 +30,8 @@ apktool b du
 ```
 执行这个命令，回编译du文件夹的内容，生成apk。会生成build和dist两个文件夹，回编译的apk在dist文件夹中,需要重新签名就可以了。
 
+执行以下命令对回编译的apk签名。
+
 ```
 jarsigner -verbose -keystore   key.keystore
  -signedjar signed.apk before.apk youmeng
