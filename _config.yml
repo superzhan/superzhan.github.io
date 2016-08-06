@@ -83,10 +83,15 @@ featured-condition-size: 0            # A tag will be featured if the size of it
 # Friends
 friends: [
     {
-        title: "Su",
-        href: "http://su.gallery/"
-    },{
-        title: "乱序",
-        href: "http://mida.re/"
+        title: "superzhan",
+        href: "http://www.superzhan.cn/"
+    },
+    {
+        title: "雨松MOMO",
+        href: "http://www.xuanyusong.com/"
+    },
+    {
+        title: "candycat1992",
+        href: "http://blog.csdn.net/candycat1992/"
     }
 ]
