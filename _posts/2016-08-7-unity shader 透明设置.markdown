@@ -190,9 +190,7 @@ Shader "Custom/Alpha/CutoffAlpha" {
 
 ```
 
-![img](img/2016-8-7-unityalpha/alpha1.png)
-![img](img/2016-8-7-unityalpha/alpha2.png)
-![img](img/2016-8-7-unityalpha/alpha3.png)
+![img](/img/2016-8-7-unityalpha/alpha1.png) ![img](/img/2016-8-7-unityalpha/alpha2.png) ![img](/img/2016-8-7-unityalpha/alpha3.png)
 
 ##### cutoff说明
 当设置`alphatest:_Cutoff`后，`o.Alpha`输出结构的透明值小于_Cutoff，这个像素点就会完全透明。在surf函数中的`o.Alpha = c.b `可以设置为`o.Alpha = c.r `或者`o.Alpha = c.b `,不同的贴图颜色会有不同的效果，需要根据具体的情况做调整。
