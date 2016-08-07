@@ -33,8 +33,7 @@ apktool b du
 执行以下命令对回编译的apk签名。
 
 ```
-jarsigner -verbose -keystore   key.keystore
- -signedjar signed.apk before.apk youmeng
+jarsigner -verbose -keystore   key.keystore -signedjar signed.apk before.apk youmeng
 ```
     key.keystore 是签名文件
     signed.apk 签名后的apk
