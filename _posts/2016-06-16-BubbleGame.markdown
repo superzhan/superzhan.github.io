@@ -42,6 +42,9 @@ tags:
 
 github 项目地址：<https://github.com/superzhan/UnityBubbleGame>
 
-[游戏下载](http://www.superzhan.cn/wp-content/uploads/2016/03/%E5%A4%A9%E5%A4%A9%E8%90%8C%E6%B3%A1%E6%B3%A1.apk)
+#### 游戏下载
+[**腾讯应用宝下载地址:** http://android.myapp.com/myapp/detail.htm?apkName=com.superzhan.bubblegame](http://android.myapp.com/myapp/detail.htm?apkName=com.superzhan.bubblegame)
+
+[游戏下载 腾讯应用宝下载地址](http://www.superzhan.cn/wp-content/uploads/2016/03/%E5%A4%A9%E5%A4%A9%E8%90%8C%E6%B3%A1%E6%B3%A1.apk)
 
 ![img](https://github.com/superzhan/UnityBubbleGame/raw/master/README/s1.png)
