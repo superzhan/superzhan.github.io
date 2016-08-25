@@ -14,7 +14,7 @@ tags:
  在开发按照路径移动的的游戏中，需要编辑一条特殊的路径。 这通常在这条路径上摆放几个坐标点，然后根据这些点生成一条平滑的曲线。
  通过N个顶点使用插值算法可以得到一条平滑的曲线，这里使用样条曲线。
  
- ```
+```
  public static List<Vector3> GetSmoothPath(List<Vector3> pathList)
 	{
 		List<Vector3> smoothPath=new List<Vector3>();
@@ -83,7 +83,7 @@ tags:
 		
 		return(vector3s);
 	}
- ```
+```
  
  使用GetSmoothPath 函数，传入N个顶点坐标的List 作为参数，最后得到平滑曲线的顶点List。 曲线的平滑度由SmoothAmount决定，数字越大，越平滑。
  
