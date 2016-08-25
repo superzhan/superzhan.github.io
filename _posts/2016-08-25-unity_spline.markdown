@@ -6,7 +6,7 @@ categories: Blog
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - unity
+    - Unity
 ---
 
 ### 获取平滑的曲线
