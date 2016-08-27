@@ -26,7 +26,7 @@ public static List<Vector3> GetSmoothPath(List<Vector3> pathList)
 	Vector3[] path = pathList.ToArray();
 	Vector3[] vector3s = PathControlPointGenerator(path);
      
-    //控制平滑度
+      //控制平滑度
 	int SmoothAmount = path.Length*100;
 	for (int i = 0; i <= SmoothAmount; i++) {
 		float pm = (float) i / SmoothAmount;
@@ -164,8 +164,8 @@ void MoveToNextPoint()
 {
 	moveLen+=speed * Time.deltaTime;
 	selfTrans.position = roadPoint.GetPointByLen(moveLen,xOffset);
-   nextPos = roadPoint.GetPointByLen(moveLen + 1f, xOffset);
-   selfTrans.LookAt(nextPos);
+	nextPos = roadPoint.GetPointByLen(moveLen + 1f, xOffset);
+	selfTrans.LookAt(nextPos);
 
 }
 ```
