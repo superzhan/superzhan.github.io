@@ -3,7 +3,7 @@ layout: post
 title:  "unity shader 透明设置 alpha 和 cutoff alpha"
 date:   2016-08-7 14:01:54 +0800
 categories: Blog
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/tag-bg.jpg"
 catalog: true
 tags:
     - shader

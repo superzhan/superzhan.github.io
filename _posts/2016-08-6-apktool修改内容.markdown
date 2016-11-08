@@ -3,7 +3,7 @@ layout: post
 title:  "apktool 修改apk内容"
 date:   2016-08-6 14:01:54 +0800
 categories: jekyll update
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/tag-bg.jpg"
 catalog: true
 tags:
     - Android

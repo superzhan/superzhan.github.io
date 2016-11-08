@@ -3,7 +3,7 @@ layout: post
 title:  "python 常用命令"
 date:   2016-06-16 08:01:54 +0800
 categories: jekyll update
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/tag-bg.jpg"
 catalog: true
 tags:
     - Python

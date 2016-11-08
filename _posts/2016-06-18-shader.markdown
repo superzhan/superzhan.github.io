@@ -3,7 +3,7 @@ layout: post
 title:  "Surface shader"
 date:   2016-06-18 14:01:54 +0800
 categories: jekyll update
-header-img: "img/post-bg-2015.jpg"
+header-img: "img/tag-bg.jpg"
 catalog: true
 tags:
     - Unity
