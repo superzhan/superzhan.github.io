@@ -1,9 +1,9 @@
 # Site settings
-title: superzhan
-SEOTitle: superzhan | superzhan Blog
+title: Superzhan
+SEOTitle: Superzhan | Game Programmer Blog
 header-img: img/tag-bg.jpg
 email: zhangzhanchang163@163.com
-description: "宏图霸业，始于足下。"
+description: "Game Programmer"
 keyword: "unity 程序员 理想主义者 心理学 "
 url: "http://superzhan.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
