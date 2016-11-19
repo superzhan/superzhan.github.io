@@ -12,6 +12,7 @@ tags:
 # 1 BEGIN
 
 维基百科，自由的百科全书
+
 >具象状态传输（英文：Representational State Transfer，简称REST）是Roy Thomas Fielding博士于2000年在他的博士论文 "Architectural Styles and the Design of Network-based Software Architectures" 中提出来的一种万维网软件架构风格。
    目前在三种主流的Web服务实现方案中，因为REST模式与复杂的SOAP和XML-RPC相比更加简洁，越来越多的web服务开始采用REST风格设计和实现。例如，Amazon.com提供接近REST风格的Web服务执行图书查询；雅虎提供的Web服务也是REST风格的。
 
