@@ -26,7 +26,7 @@ Step1 新建一个Cube对象，把它制作成预设，在资源预览窗口中�
 
 Step2 使用编辑器脚本打包资源。在项目中新建一个Editor的文件夹，新建一个脚本AssetBundleBuilder。这个脚本在工程中创建了一个目录，然后把做了AssetBundle 打包标记的的资源进行打包处理。执行菜单-> Assets -> BuildAssetBundle ,Unity 就会开始进行打包进程。
 
-``` C#
+```C#
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
@@ -59,7 +59,7 @@ public class AssetBundleBuilder
 
 新建一个脚本,把脚本绑定在一个GameObject 上，点击运行。 Cube 预设就会从AssetBundle 中加载出来。
 
-``` C#
+```C#
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -120,7 +120,7 @@ step1 把资源包ab-cube.a （只需要这一个文件） 放到apache的根目
 
 step2 新建一个脚本并绑定在场景中。
 
-```
+```C#
 using UnityEngine;
 using System.Collections;
 
