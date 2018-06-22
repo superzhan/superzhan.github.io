@@ -46,7 +46,7 @@ express todo -e
 
 添加一个简单的api接口 testAPI. 在 routes/index.js 添加代码
 
-```
+```js
 router.get('/testApi',function(req, res, next) {
 
     res.json({result:'hi ,this is api result'});
@@ -56,7 +56,7 @@ router.get('/testApi',function(req, res, next) {
 
 在添加一个Post 方法的接口。
 
-```
+```js
 router.post('/testApi',function(req, res, next) {
 
     res.json({result:'hi ,this is api result'});
@@ -73,7 +73,7 @@ router.post('/testApi',function(req, res, next) {
 添加一个addItem 的接口，把客户端发送过来的数据处理之后，插入到数据库中。
 
 
-```
+```js
 router.post('/addItem',function(req,res,next){
 
   var item = {};
@@ -95,7 +95,7 @@ router.post('/addItem',function(req,res,next){
 
 添加一个finishItem 接口，返回已经完成的任务。接口的实现也是简单的数据库查询。
 
-```
+```js
 router.post('/finishItem',function(req,res,next){
 
   var item = {};
@@ -128,7 +128,7 @@ router.post('/finishItem',function(req,res,next){
  具体的可以参考github上的项目[https://github.com/superzhan/ToDo](https://github.com/superzhan/ToDo)
  
  
- ```
+```js
 var config = require('../../mongoConfig.json');
 
 var connectStr = '';
@@ -156,7 +156,7 @@ module.exports = mongoose;
 
 任务数据模型
 
-```
+```js
 var mongoose = require('mongoose');
 var timeTool = require('./timeTool');
 
@@ -172,7 +172,7 @@ module.exports = mongoose.model('Todo', ToDoSchema);
 
 用户数据模型
 
-```
+```js
 var mongoose = require('mongoose');
 var timeTool = require('./timeTool');
 
@@ -194,7 +194,7 @@ module.exports = mongoose.model('User', UserSchema);
 
 而且还需要查找是否有相同名称的用户，若有相同名称的用户，返回注册失败的结果。
 
-```
+```js
 router.post('/register',function (req, res, next) {
 
     var name = req.body.name;
@@ -248,7 +248,7 @@ router.post('/register',function (req, res, next) {
 
 用户登录时需要把请求的明文密码用哈希算法加密后，再进行数据库查询。
 
-```
+```js
 router.post('/login',function (req, res, next) {
 
     var name = req.body.name;
@@ -312,7 +312,7 @@ router.post('/login',function (req, res, next) {
 
 这里使用passport 模块，[http://passportjs.org/](http://passportjs.org/) 。passport 是一个node.js的Http验证模块，可以快速开发http验证功能。 这里使用简单的basic auth 验证。
 
-```
+```js
 /*导入包*/
 var passport = require('passport');
 var Strategy = require('passport-http').BasicStrategy;
@@ -349,7 +349,7 @@ router.post('/getItem', authenti,function(req, res, next) {});
 
 这个工程总共有8个任务接口，包括查看任务、添加任务、更新任务和删除任务。具体代码可以参考github 代码仓库。 [https://github.com/superzhan/ToDo](https://github.com/superzhan/ToDo)
 
-```
+```js
 router.post('/getItem', authenti,function(req, res, next) {
 
     TodoSchema.findOne({"_id":req.body._id},function(err, data){

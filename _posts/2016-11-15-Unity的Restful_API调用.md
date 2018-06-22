@@ -22,7 +22,7 @@ tags:
 
 基本http的GET请求需要在一个协程中new一个WWW类并传入准确的API地址，执行`		yield return www ` 就会等待服务器的返回结果，之后才开始执行以后的代码。 Get请求的API参数需要加入到API的地址中去，格式 `URL+?key1=value1&key2=value2`。
 
-```
+```c#
 public class NewBehaviourScript : MonoBehaviour {
 
 	// Use this for initialization
@@ -49,7 +49,7 @@ public class NewBehaviourScript : MonoBehaviour {
 # 3 简单的Post请求
 这份代码使用的是JSON格式的数据。POST请求需要一个API地址，请求的HTTP头部需要加入头信息表明是json格式的数据，发送的josn数据格式化为字符串并转化为字节数据。这里使用的JSON解析库是MiniJSON。
 
-```
+```c#
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -99,7 +99,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 新建一个字典数据，加入编码说明和帐号信息。
 
-```
+```c#
 Dictionary<string,string> AuthDic = new Dictionary<string,string> ();  // auth header
 AuthDic.Add("Content-Type", "application/json");
 string NameAndPw = "UserName" + ":" + "Password";
@@ -109,7 +109,7 @@ AuthDic.Add("Authorization", "Basic " + System.Convert.ToBase64String(System.Tex
 
 完整的安全验证的POST请求
 
-```
+```c#
 IEnumerator IEPost()
 	{
 		string fullUrl = "http://127.0.0.1:6789/bmi";
@@ -147,7 +147,7 @@ IEnumerator IEPost()
 
 以下的http请求的的封装。
 
-```
+```c#
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -339,7 +339,7 @@ public class HttpAPI : MonoBehaviour {
 
 基于以上的RestHttpAPI可以使用简单的代码调用RESTful API。
 
-```
+```c#
 //设置API的网络地址
 HttpAPI.Instance.ipAdr = "https://127.0.0.1:5000";
 HttpAPI.Instance.UserName = "b";

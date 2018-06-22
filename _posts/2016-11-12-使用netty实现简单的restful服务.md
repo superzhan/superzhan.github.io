@@ -33,7 +33,7 @@ Netty是一个异步服务端网络编程框架，使用netty可以快速开发�
 
 3. 新建一个Java类MainServer，加入 ServerBootstrap的启动代码。这部分代码源自Netty 的Http Example,所有的Netty 服务启动代码和这类似。
 
-```
+```java
 
 package com.health;
 import io.netty.bootstrap.ServerBootstrap;
@@ -100,7 +100,7 @@ public final class MainServer {
 
 在工程中新建一个class ServerInitializer,用于连接的初始化。
 
-```
+```java
 package com.health;
 
 import io.netty.channel.ChannelInitializer;
@@ -141,7 +141,7 @@ public class ServerInitializer extends ChannelInitializer<SocketChannel> {
 2. 把客户端的请求数据解析成Json对象，方便做运算。
 3. 把计算好的结果生成一个Json 数据发回客户端。
 
-```
+```java
 
 package com.health;
 

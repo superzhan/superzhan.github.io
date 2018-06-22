@@ -44,7 +44,7 @@ Unity默认使用的shader不能设置3D对象的透明和和半透明，我们�
 	```
 3. 使用颜色值的最后一位设置颜色值，附上surf函数。
 
-```
+```c
 void surf (Input IN, inout SurfaceOutput o) {
 	// Albedo comes from a texture tinted by color
 	fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
@@ -59,7 +59,7 @@ void surf (Input IN, inout SurfaceOutput o) {
    代码已经上传到github,[https://github.com/superzhan/shaderProj](https://github.com/superzhan/shaderProj)。
 透明控制的代码在Alpha文件夹下。
    
-```
+```c
 Shader "Custom/Alpha/NormalAlpha" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
@@ -123,17 +123,17 @@ cutoff alpha的功能是当alpha值小于某个值的时候，就把这个像素
     `"Queue"="Transparent"`
 2. 在Properties添加一个属性,用于控制alpha的范围，当alpha小于这个数值时，就会把像素点设置透明。 
 
-   ```
+   ```c
    _Cutoff("Cutoff Value",Range(0,1.1))=0.5
    ```
 3. 在#pragma编译指令后添加参数 alphatest:_Cutoff 。 冒号后的_Cutoff就是属性中的数值。
 
-    ```
+    ```c
 	#pragma surface surf Lambert alphatest:_Cutoff 
 	```
 4. 在surf函数中设置要变更的颜色通道。
 
-```
+```c
 void surf (Input IN, inout SurfaceOutput o) {
 	// Albedo comes from a texture tinted by color
 	fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
@@ -149,7 +149,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 代码已经上传到github,[https://github.com/superzhan/shaderProj](https://github.com/superzhan/shaderProj)。
 透明控制的代码在Alpha文件夹下。
 
-```
+```c
 Shader "Custom/Alpha/CutoffAlpha" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)

@@ -13,7 +13,7 @@ tags:
 
 #### 代码 
 
-```
+```c
 //水面波浪
 Shader "Surface_Example/vertexAnimate" {
 	Properties {
