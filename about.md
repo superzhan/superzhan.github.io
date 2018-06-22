@@ -1,10 +1,12 @@
 ---
-layout: page
-title: 关于
+layout: post
+title: About
 permalink: /about/
+description: keep hungry keep foolish
 header-img: "img/home-bg.jpg"
-order: 4
+order: 2
 ---
+
 ## 关于
 
 我是superzhan,一名游戏开发工程师。
